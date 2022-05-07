@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>AB实验中的假设检验统计学原理 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="AB实验,假设检验">
+    <meta name="description" content="假设检验假设检验的基础知识假设检验是属于统计推断(Statistic Inference)的一项重要方法论。统计推断是通过样本来推断总体的统计方法，是通过对随机抽样的样本数据进行分析，进而对总体作出推断的方法。统计推断包括参数估计(点估计、矩估计、区间估计)、假设检验等常见的方法。假设检验本质上也是通过样本对总体的统计特征进行推断的方法。 对总体的某种规律提出假设，再通过样本数据进行推断，决定是否">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AB实验中的假设检验统计学原理">
+<meta property="og:url" content="http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="假设检验假设检验的基础知识假设检验是属于统计推断(Statistic Inference)的一项重要方法论。统计推断是通过样本来推断总体的统计方法，是通过对随机抽样的样本数据进行分析，进而对总体作出推断的方法。统计推断包括参数估计(点估计、矩估计、区间估计)、假设检验等常见的方法。假设检验本质上也是通过样本对总体的统计特征进行推断的方法。 对总体的某种规律提出假设，再通过样本数据进行推断，决定是否">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-14T07:20:22.000Z">
+<meta property="article:modified_time" content="2022-01-18T12:34:37.584Z">
+<meta property="article:author" content="spring">
+<meta property="article:tag" content="AB实验">
+<meta property="article:tag" content="假设检验">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpeg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">spring</h5>
+          <a href="mailto:ccq1996@bupt.edu.cn" title="ccq1996@bupt.edu.cn" class="mail">ccq1996@bupt.edu.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AB实验中的假设检验统计学原理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">AB实验中的假设检验统计学原理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2022-01-14T07:20:22.000Z" itemprop="datePublished" class="page-time">
+  2022-01-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#假设检验"><span class="post-toc-number">1.</span> <span class="post-toc-text">假设检验</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#假设检验的基础知识"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">假设检验的基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原假设与备择假设"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">原假设与备择假设</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检验统计量与拒绝域"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">检验统计量与拒绝域</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一类错误与第二类错误"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">第一类错误与第二类错误</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#显著性水平-alpha-，检验功效-1-beta-与功效函数"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">显著性水平$\alpha$，检验功效$1-\beta$与功效函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#P值-P-value"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">P值(P-value)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#假设检验的基本流程"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">假设检验的基本流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">参考链接</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-AB实验中的假设检验统计学原理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AB实验中的假设检验统计学原理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2022-01-14 15:20:22" datetime="2022-01-14T07:20:22.000Z"  itemprop="datePublished">2022-01-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><h2 id="假设检验的基础知识"><a href="#假设检验的基础知识" class="headerlink" title="假设检验的基础知识"></a>假设检验的基础知识</h2><p>假设检验是属于统计推断(Statistic Inference)的一项重要方法论。统计推断是通过样本来推断总体的统计方法，是通过对随机抽样的样本数据进行分析，进而对总体作出推断的方法。统计推断包括参数估计(点估计、矩估计、区间估计)、假设检验等常见的方法。假设检验本质上也是通过样本对总体的统计特征进行推断的方法。</p>
+<p>对总体的某种规律提出假设，再通过样本数据进行推断，决定是否拒绝这个假设，这样的统计活动成为假设检验。</p>
+<h3 id="原假设与备择假设"><a href="#原假设与备择假设" class="headerlink" title="原假设与备择假设"></a>原假设与备择假设</h3><p>从Fisher的鸢尾花数据集例子入手，鸢尾花数据集是为了量化鸢尾花形态上的区别而收集的，包含了山鸢尾，杂色鸢尾，维吉尼亚鸢尾这三种鸢尾花的花萼，花瓣的长度和宽度。考虑这样一个问题：”山鸢尾花的花萼长度的均值是4.5cm”，这个论断是否正确呢？</p>
+<p>不妨设$X$为山鸢尾花萼的总体，$\mu$ 为花萼长度的均值。则上述问题是要检验$\mu = 4.5$这一个假设是否成立。具体地，我们需要推断$\mu = 4.5$ 和它的对立面 $\mu \neq 4.5$ 哪个是成立的。可以表示为：<br>$$<br>\begin{align}<br>H_0: \mu = 4.5 \\<br>H_1: \mu \neq 4.5<br>\end{align}<br>$$ 其中$H_0$称为 <strong>原假设/零假设(Null Hypothesis)</strong> ， $H_1$称为<strong>备选假设/备择假设/对立假设(Alternative Hypothesis)</strong> 。检验的目标是判断这两个假设哪个是正确的，最终的结论只能有一个。</p>
+<p>更一般性地，用数学语言来表述这两个假设。设我们要研究的总体来自某一参数分布族$\lbrace F(x,\theta), \theta \in \Theta \rbrace $，随机变量$X$的概率密度函数为$f(x; \theta)$，其中$\Theta$为参数空间，包含所有可能的参数。假设检验问题的基本形式为<br>$$<br>\begin{align}<br>H_0: \theta \in \Theta_0 \\<br>H_1: \theta \in \Theta_1<br>\end{align}<br>$$ 其中，$\Theta_0 \neq \oslash,\ \Theta_0 \in \Theta, \Theta_0 \cap \Theta_1 = \oslash$。最常见的情况是$\Theta_1 = \Theta - \Theta_0$。</p>
+<p>通常情况下，备择假设是我们想要验证的结论，而原假设是我们想要推翻的结论。假设检验用到了反证法的思想，通过推翻原假设，推断原假设不成立，从而证明对立面的备择假设的正确性。</p>
+<h3 id="检验统计量与拒绝域"><a href="#检验统计量与拒绝域" class="headerlink" title="检验统计量与拒绝域"></a>检验统计量与拒绝域</h3><p>设$\lbrace X_1,X_2,…, X_n \rbrace$为从随机变量$X$服从的分布中随机抽取的$n$个样本，我们根据这$n$个样本的统计特性来构造统计量$T(X_1,X_2,…, X_n)$，通过计算统计量$T$的值来决定是否拒绝原假设，$T(X_1,X_2,…, X_n)$即为假设检验的<strong>检验统计量</strong>。一般情况下，为了借助常见分布的统计特性，我们会构造服从各种常见分布(正态分布，t分布，卡方分布，F分布)的检验统计量。</p>
+<p>将样本空间划分为两个互不相交的部分$W$和$\bar{W}$,当样本属于$W$时就拒绝原假设$H_0$，否则就接受$H_0$，称$W$为该假设检验的<strong>拒绝域</strong>(Critical Region, Rejection Region)，而$\bar{W}$为假设检验的接受域(Acceptation Region)。</p>
+<p>回到鸢尾花的例子上，随机采样测量了50个山鸢尾花萼的长度，计算出样本均值$\bar{x} = 5.006cm$，将样本均值$\bar{x}$当作是对总体均值$\mu$的一种估计，也就是我们构建的<strong>检验统计量</strong>。需要进一步根据检验统计量来推断是否拒绝原假设，当样本均值$\bar{x}$偏离总体均值$\mu$较远时，我们就有理由拒绝原假设$H_0: \mu = 4.5$。此时我们可以得到一种可行的<strong>拒绝域</strong>为：<br>$$W = \lbrace {x_i: |\bar{x} - \mu| &gt; c} \rbrace$$ 其中，$c$是一个待定的常数。样本均值$\bar{x} = 5.006cm$，故$|\bar{x} - \mu| = 0.506$，若$0.506 &gt; c$则拒绝原假设，否则接受原假设。后面我们将讨论如何选择合适的常数$c$。</p>
+<h3 id="第一类错误与第二类错误"><a href="#第一类错误与第二类错误" class="headerlink" title="第一类错误与第二类错误"></a>第一类错误与第二类错误</h3><p>由于抽取样本的随机性，检验不可能百分百正确，可能出现错误。客观事实有两种情况：原假设为真；原假设为假。检验的结果也有两种情况：接受原假设；拒绝原假设。因此，有下列四种情况：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">接受原假设</th>
+<th align="center">拒绝原假设</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">原假设为真</td>
+<td align="center">正确</td>
+<td align="center">第一类(Type 1)错误，拒真</td>
+</tr>
+<tr>
+<td align="center">原假设为假</td>
+<td align="center">第二类(type 2)错误，纳伪</td>
+<td align="center">正确</td>
+</tr>
+</tbody></table>
+<p>通俗地理解，第一类错误表示原假设为真，但我们错误地拒绝了原假设，即拒真错误。第二次错误表示，原假设为假，但我们错误地接受了原假设，即纳伪错误。<strong>假设检验的核心问题就是如何控制两类错误的概率。</strong>值得注意的是，这两类错误都是条件概率。最理想的情况是第一类错误和第二类错误地概率都很小，但实际上不可能达到。第一类错误和第二类错误的概率实际上是此消彼长的关系。</p>
+<h3 id="显著性水平-alpha-，检验功效-1-beta-与功效函数"><a href="#显著性水平-alpha-，检验功效-1-beta-与功效函数" class="headerlink" title="显著性水平$\alpha$，检验功效$1-\beta$与功效函数"></a>显著性水平$\alpha$，检验功效$1-\beta$与功效函数</h3><p>犯第一类错误的概率用$\alpha$表示，定义为在原假设$H_0$成立的条件下，样本数据落在拒绝域$W$的概率：<br>$$\alpha = P(x_{1:n} \in W|H_0)$$ 犯第二类错误的概率用$\beta$表示，定义为在备择假设$H_1$成立的条件下，样本数据没有落在拒绝域$W$的概率：<br>$$\beta = P(x_{1:n} \notin W|H_1)$$ 进一步地，对于参数假设检验有：<br>$$<br>\begin{align}<br>\alpha &amp;= P_{\theta}(X_{1:n} \in W) = \rho_{W}(\theta), \theta \in \Theta_0  \\<br>\beta &amp;= P_{\theta}(X_{1:n} \notin W) = 1 - \rho_{W}(\theta), \theta \in \Theta_1<br>\end{align}<br>$$ 其中，$\rho_{W}(\theta) = P_{X_{1:n} \in W)}$ 表示事件$\lbrace {\theta(X_{1:n} \in W} \rbrace$的概率，我们称$\rho_{W}(\theta)$为<strong>功效函数</strong>(power function)。<br>犯第一类错误的概率$\alpha$被称为拒绝域$W$的<strong>检验水平/显著性水平</strong>(level of significanca)。</p>
+<blockquote>
+<p><strong>如何理解显著性水平呢？</strong><br>一般情况下，在得出检验结论时，我们希望将显著性水平$\alpha$控制在一个较低的水平(一般取0.05或0.01)。显著性水平的控制使得<ins>一旦我们拒绝了原假设，犯第一类错误(拒真)的概率将会控制在一个相当低的水平(不大于$\alpha$)，此时，备择假设有相当高的概率是真实成立的，则拒绝原假设，接受备择假设就是一次“强有力”的选择</ins> 。拒绝原假设并不是目的，基于反证法，通过拒绝原假设来接受备择假设才是最终的目的。这也就是我们把希望推翻的结论放在原假设，而把希望得到的结论放在备择假设的原因。</p>
+</blockquote>
+<p>在大多数情况下，第一类错误的概率$\alpha$和第二类错误的概率$\beta$是背道而驰的。在样本量不变的情况下，如果其中一个变小则另一个会变大。考虑到，两类错误的概率不能同时被控制。统计学中，拒绝域的选取准则是：在保证犯第一类错误的概率不超过一定水平的前提下，选择犯第二类错误的概率尽可能小(等价地，<strong>检验功效</strong>尽可能大)的拒绝域。我们将$1-\beta = \rho_{W}(\theta), \theta \in \Theta_1$称为<strong>检验功效</strong>(power)。功效函数和检验功效的区别在于定义域的不同。</p>
+<blockquote>
+<p><strong>如何理解检验功效呢？</strong><br>在控制显著性水平一定时，我们希望最大化检验功效。在得出检验结论时，<ins>一旦我们接受了原假设，检验功效越大，我们犯错误的概率越低，这次接受原假设而拒绝备择假设的把握越大</ins>。</p>
+</blockquote>
+<h3 id="P值-P-value"><a href="#P值-P-value" class="headerlink" title="P值(P-value)"></a>P值(P-value)</h3><p>P-value本质上是一个概率值，这里的P指的是Probability。上文介绍到显著性水平$\alpha$是我们设定的凡第一类错误的概率最大值。那P-value与$\alpha$有什么区别和联系呢？对于同样的假设、同样的实验方法，由于抽样是随机的，每次假设检验实际得到的观测数据可能是不同的。因此，对于每次假设检验，我们可以得到一个<strong>“基于本次观测数据结果计算得到的凡第一类错误的概率”</strong>，P值描述的就是这个概率。也就是说，P值指的是当原假设为真时，假设检验得到的观测数据出现的概率。如果p-value小于我们预设的显著性水平，即p-value $&lt; \alpha$，说明在原假设成立的条件下，观测数据出现的概率很小。基于小概率原理，我们就有足够的信心去拒绝原假设。</p>
+<blockquote>
+<p><strong>小概率原理</strong><br>如果一个事件发生的概率很小，那么它在一次实验中几乎是不会发生的。数学上称之为小概率原理。一般认为小于或等于0.05或0.01的概率为小概率。<br>若原假设$H_0$为真，则样本落在拒绝域$W$是小概率事件，几乎不会发生。若发生，可以大胆地拒绝原假设$H_0$。</p>
+</blockquote>
+<p>从另一个角度理解P值，可以认为P值是在原假设$H_0$成立的条件下，得到与本次观测结果一致或比观测结果更极端的观测结果的概率，也就是一个“尾部概率”的概念。如果这个尾部概率相当大，那么可以认为此次观测结果在原假设成立的条件下不是一个小概率事件，我们不能基于本次观测结果拒绝原假设；反之，如果这个尾部概率相当小，那么可以认为此次观测结果在原假设成立的条件下是一个小概率事件，不应该发生，因此我们认为原假设大概率是不成立的，可以拒绝原假设。<br>举一个例子，我们要检验一枚硬币是否均匀，提出假设：<br>$$<br>\begin{align}<br>H_0 &amp;: 随机抛硬币，硬币正面朝上的概率是\frac{1}{2} \\<br>H_1 &amp;: 随机抛硬币，硬币正面朝上的概率不是\frac{1}{2}<br>\end{align}<br>$$ 如果我们抛100次硬币，观测到80次朝上，20次朝下的结果，那我们可以计算跟本次观测结果一致或者比观测结果更极端的观测结果的概率。此概率为：<br>$$<br>{C^{80}_{100}(\frac{1}{2})^{100}}<br>+ {C^{81}_{100}(\frac{1}{2})^{100}}<br>+ …<br>+ {C^{100}_{100}(\frac{1}{2})^{100}}<br>\approx 5.58 \times 10^{-10}<br>$$ 此概率为<strong>本次假设检验的P值</strong>，说明在原假设成立的条件下，几乎不可能观测到与本次观测结果一致或者更极端的结果，“基于本次观测结果计算的凡第一类错误的概率”不会大于$5.58 \times 10^{-10}$，控制在显著性水平$\alpha$之下，因此我们可以拒绝原假设，认为这枚硬币是不均匀的。</p>
+<h2 id="假设检验的基本流程"><a href="#假设检验的基本流程" class="headerlink" title="假设检验的基本流程"></a>假设检验的基本流程</h2><ol>
+<li><strong>先确定待检验的问题。</strong>如实验组和对照组的某个指标均值或方差是否存在差异，实验组和对照组某个指标是否服从相同的分布。</li>
+<li><strong>提出两个待检验的假设。</strong>根据先验知识，确实使用单侧检验或是双侧检验，并提出原假设和备择假设。</li>
+<li><strong>构造并计算统计量。</strong>设定本次假设检验的显著性水平$\alpha$，并根据样本数据和待检验指标的统计特征构造检验统计量$T$，计算检验统计量的值。</li>
+<li><strong>得出检验结论。</strong>综合显著性水平$\alpha$和检验统计量$T$的值，以及服从的分布的特性，得出在统计学意义上是否拒绝原假设的结论。</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://bookdown.org/hezhijian/book/test.html#ump" target="_blank" rel="noopener">华南理工大学何志坚《数理统计讲义》第三章-假设检验</a></li>
+<li><a href="http://staff.ustc.edu.cn/~zwp/" target="_blank" rel="noopener">中科大张伟平</a>–<a href="http://staff.ustc.edu.cn/~zwp/teach/Prob-Stat/Lec17_slides.pdf" target="_blank" rel="noopener">假设检验讲义</a></li>
+<li><a href="https://km.woa.com/group/47744/articles/show/432775?kmref=search&from_page=1&no=2" target="_blank" rel="noopener">AB测试中常用的假设检验统计学原理</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/P%E5%80%BC" target="_blank" rel="noopener">P值-维基百科</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2022-01-18T12:34:37.584Z" itemprop="dateUpdated">2022-01-18 20:34:37</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://example.com">
+            <img src="/img/avatar.jpeg" alt="spring">
+            spring
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AB%E5%AE%9E%E9%AA%8C/" rel="tag">AB实验</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">假设检验</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/&title=《AB实验中的假设检验统计学原理》 — Hexo&pic=http://example.com/img/avatar.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/&title=《AB实验中的假设检验统计学原理》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AB实验中的假设检验统计学原理》 — Hexo&url=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2022/01/08/2021-%E4%B8%89%E5%B9%B4%E4%B9%8B%E6%9C%9F/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2021-三年之期</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/avatar.jpeg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/avatar.jpeg" data-alipay="/img/avatar.jpeg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>spring &copy; 2015 - 2022</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/&title=《AB实验中的假设检验统计学原理》 — Hexo&pic=http://example.com/img/avatar.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/&title=《AB实验中的假设检验统计学原理》 — Hexo&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AB实验中的假设检验统计学原理》 — Hexo&url=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/&via=http://example.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://example.com/2022/01/14/AB%E5%AE%9E%E9%AA%8C%E4%B8%AD%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%8E%9F%E7%90%86/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
