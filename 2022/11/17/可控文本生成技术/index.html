@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://example.com/img/controllable_text_generation/beamsearch_vs_human.png">
 <meta property="og:image" content="http://example.com/img/controllable_text_generation/topk_disadvantage.png">
 <meta property="article:published_time" content="2022-11-17T12:50:15.000Z">
-<meta property="article:modified_time" content="2022-11-24T07:51:49.986Z">
+<meta property="article:modified_time" content="2023-03-02T12:31:27.505Z">
 <meta property="article:author" content="spring">
 <meta property="article:tag" content="文本生成">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解码策略-Decoding-Strategy"><span class="post-toc-number">1.</span> <span class="post-toc-text">解码策略(Decoding Strategy)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用的解码方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">常用的解码方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#旧的解码策略"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">旧的解码策略</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#greedy-decode"><span class="post-toc-number">1.1.1.1.</span> <span class="post-toc-text">greedy decode</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#beam-search"><span class="post-toc-number">1.1.1.2.</span> <span class="post-toc-text">beam search</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#pure-sampling"><span class="post-toc-number">1.1.1.3.</span> <span class="post-toc-text">pure sampling</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新的解码策略"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">新的解码策略</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Softmax-with-temperature"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">Softmax with temperature</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Top-k采样"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">Top-k采样</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#核采样"><span class="post-toc-number">1.1.2.3.</span> <span class="post-toc-text">核采样</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他变体"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">其他变体</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#重复惩罚"><span class="post-toc-number">1.1.3.1.</span> <span class="post-toc-text">重复惩罚</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#长度惩罚"><span class="post-toc-number">1.1.3.2.</span> <span class="post-toc-text">长度惩罚</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接🔗"><span class="post-toc-number">2.</span> <span class="post-toc-text">参考链接🔗</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解码策略-Decoding-Strategy"><span class="post-toc-number">1.</span> <span class="post-toc-text">解码策略(Decoding Strategy)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用的解码方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">常用的解码方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#旧的解码策略"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">旧的解码策略</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#greedy-decode"><span class="post-toc-number">1.1.1.1.</span> <span class="post-toc-text">greedy decode</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#beam-search"><span class="post-toc-number">1.1.1.2.</span> <span class="post-toc-text">beam search</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#pure-sampling"><span class="post-toc-number">1.1.1.3.</span> <span class="post-toc-text">pure sampling</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新的解码策略"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">新的解码策略</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Softmax-with-temperature"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">Softmax with temperature</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Top-k采样"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">Top-k采样</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#核采样"><span class="post-toc-number">1.1.2.3.</span> <span class="post-toc-text">核采样</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他变体"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">其他变体</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#重复惩罚"><span class="post-toc-number">1.1.3.1.</span> <span class="post-toc-text">重复惩罚</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#长度惩罚"><span class="post-toc-number">1.1.3.2.</span> <span class="post-toc-text">长度惩罚</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chatGPT超参数的含义"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">chatGPT超参数的含义</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#presence-penalty与frequency-penalty的区别"><span class="post-toc-number">1.1.4.1.</span> <span class="post-toc-text">presence_penalty与frequency_penalty的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#frequency-penalty在生成文本多样性和新颖性上的影响"><span class="post-toc-number">1.1.4.2.</span> <span class="post-toc-text">frequency_penalty在生成文本多样性和新颖性上的影响</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接🔗"><span class="post-toc-number">2.</span> <span class="post-toc-text">参考链接🔗</span></a></li></ol>
         </nav>
     </aside>
 
@@ -238,6 +238,31 @@
 <p>$$<br>P^{‘}(x|x_{1:i-1}) = \begin{cases}<br>\frac{P(x|x_{1:i-1})}{p^{‘}},\quad &amp;x\in V^{(p)} \<br>0,\quad &amp;x \notin V^{(k)}<br>\end{cases}<br>$$<br>top-p采样可以看作是top-k采样的变体，top-p采样根据<em>概率分布的形状</em>来动态地调整候选词集合的大小$k$。阈值$p$取值较大时(比如0.95)，词表中一个很小的候选词集合占了很大的概率值，这就是核(necleus)。</p>
 <h3 id="其他变体"><a href="#其他变体" class="headerlink" title="其他变体"></a>其他变体</h3><h4 id="重复惩罚"><a href="#重复惩罚" class="headerlink" title="重复惩罚"></a>重复惩罚</h4><p>Repetition Penalty <a href="https://arxiv.org/abs/1909.05858" target="_blank" rel="noopener">(Keskar et al. 2019)</a>。通过降低已生成词的分数来减小生成重复文本的可能。为了避免生成重复的短语，<a href="https://arxiv.org/abs/1909.05858" target="_blank" rel="noopener">CTRL</a>提出了通过降低已生成词的分数，来降低生成重复文本的可能。用于生成下一个词的概率分布定义为：<br>$$ p_i = \frac{exp(o_i / (T \cdot I(i \in g)))}{\sum_{j} exp(o_j / (T \cdot I(j \in g)))} \quad<br>I(c) = \theta \ if\ condition\ c\ is\ True\ else\ 1<br>$$<br>其中，$g$表示已生成词的集合。$I(c)$是判别函数。论文发现$\theta = 1.2$可以比较好地实现真实回复与减少重复的平衡。</p>
 <h4 id="长度惩罚"><a href="#长度惩罚" class="headerlink" title="长度惩罚"></a>长度惩罚</h4><p>Length Penalty <a href="https://arxiv.org/pdf/1609.08144.pdf" target="_blank" rel="noopener">(Yonghui Wu. 2016)</a>。可以通过一个长度函数来加权句子的概率分数。没有这个长度函数的加权，最大化概率解码方法会倾向于更短的句子（随着句长增加，联合对数似然单调递减。）最常用的长度打分函数是：<br>$$lp(Y) = \frac{(5 + |Y|)^{\alpha}}{(5+1)^{\alpha}} $$<br>其中，$0 &lt; \alpha &lt; 1$。</p>
+<h3 id="chatGPT超参数的含义"><a href="#chatGPT超参数的含义" class="headerlink" title="chatGPT超参数的含义"></a>chatGPT超参数的含义</h3><p><strong>temperature</strong>: 取值范围为0到2之间。值越大，会使输出更随机（random）；值越小，会使得输出更确定（deternimistic）。</p>
+<p><strong>presence_penalty:</strong><br>取值范围在-2到2之间。取值为正时，在生成下一个词时，会基于在已生成文本中是否出现进行惩罚，会增大模型谈论新话题的可能性。</p>
+<p><strong>frequency_penalty:</strong><br>取值范围在-2到2之间。取值为正时，在生成下一个词时，会基于在已生成文本中出现的频率进行惩罚，会降低模型生成重复文本段的可能性。</p>
+<h4 id="presence-penalty与frequency-penalty的区别"><a href="#presence-penalty与frequency-penalty的区别" class="headerlink" title="presence_penalty与frequency_penalty的区别"></a>presence_penalty与frequency_penalty的区别</h4><p>presence_penalty和frequency_penalty可以降低采样重复词序列的可能性。它们以加法方式（additive），而不是乘法方式，直接修改logits（未归一化的对数概率，un-normalized log-probabilities）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mu[j] -&gt; mu[j] - c[j] * alpha_frequency - float(c[j] &gt; 0) * alpha_presence</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul>
+<li><code>mu[j]</code> 是第j个词的logits</li>
+<li><code>c[j]</code> 是目前为止一个词被采样的频率</li>
+<li>如果<code>c[j] &gt; 0</code>，<code>float(c[j] &gt; 0)</code> 的值是1，否则是0</li>
+<li><code>alpha_frequency</code>是频率惩罚因子</li>
+<li><code>alpha_presence</code>是出现惩罚因子</li>
+</ul>
+<p>presence_penalty是一次性的加法贡献，应用于目前已采样过至少一次的词。frequency_penalty正比于一个词到目前为止被采样的频率。</p>
+<p>如果只是为了减少重复采样的次数，惩罚因子的合理取值范围是0.1到1。如果是为了强有力地避免重复，可以将系数增大为2，但这可能会显著降低采样的质量。惩罚系数取值为负数时，可以增大重复的可能性。</p>
+<ul>
+<li><a href="https://platform.openai.com/docs/api-reference/chat/create" target="_blank" rel="noopener">https://platform.openai.com/docs/api-reference/chat/create</a></li>
+</ul>
+<h4 id="frequency-penalty在生成文本多样性和新颖性上的影响"><a href="#frequency-penalty在生成文本多样性和新颖性上的影响" class="headerlink" title="frequency_penalty在生成文本多样性和新颖性上的影响"></a>frequency_penalty在生成文本多样性和新颖性上的影响</h4><p>生成模型用在词表上的概率分布来生成下一个词。frequency_penalty修改这个分布logits，降低模型生成高频词的概率，鼓励模型生成更少见更新颖的词。</p>
+<p>frequency_penalty作为对数概率的缩放因子（scaling factor）来起作用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(1 – frequency_penalty) * log_probability</span><br></pre></td></tr></table></figure>
+<p>其中，frequency_penalty取值范围为0到1。<br>当frequency_penalty设置为0时，模型的生成过程不受影响。<br>当frequency_penalty设置为1时，模型不会生成训练过程中见过的任意词，会生成完全随机的文本。<br>当取值为0到1时，会鼓励模型生成平衡常见和新颖性的词。</p>
+<ul>
+<li><a href="https://gptaipower.com/frequency-penalty/" target="_blank" rel="noopener">https://gptaipower.com/frequency-penalty/</a></li>
+</ul>
 <h1 id="参考链接🔗"><a href="#参考链接🔗" class="headerlink" title="参考链接🔗"></a>参考链接🔗</h1><ul>
 <li><a href="https://lilianweng.github.io/posts/2021-01-02-controllable-text-generation/" target="_blank" rel="noopener">《Controllable Neural Text Generation》</a> 🏷️paper 🏷️英文</li>
 <li><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/ml-quantifying-uncertainty/temp-scaling.html" target="_blank" rel="noopener">Temperature scaling-aws</a> 🏷️英文 🏷️temperature</li>
@@ -253,7 +278,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2022-11-24T07:51:49.986Z" itemprop="dateUpdated">2022-11-24 15:51:49</time>
+    最后更新时间：<time datetime="2023-03-02T12:31:27.505Z" itemprop="dateUpdated">2023-03-02 20:31:27</time>
 </span><br>
 
 
@@ -426,7 +451,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>spring &copy; 2015 - 2023</span>
+        <p><span>spring &copy; 2015 - 2024</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
